@@ -2822,6 +2822,8 @@ wintomon(Window w)
 		return c->mon;
 	return selmon;
 }
+
+Client *
 wintosystrayicon(Window w) {
 	Client *i = NULL;
 
