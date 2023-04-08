@@ -25,7 +25,7 @@ static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-       [SchemUrg] = { selfgcolor, selbgcolor, col_urgborder },
+       [SchemeUrg] = { selfgcolor, selbgcolor, col_urgborder },
 };
 
 /* tagging */
