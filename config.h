@@ -31,7 +31,7 @@ static char selbgcolor[]            = "#005577";
 static char col_urgborder[]         = "#ff0000";
 static char *colors[][3] = {
        /*               fg           bg           border   */
-       [SchemeNorm] = i{ normfgcolor, normbgcolor, normbordercolor },
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
        [SchemeUrg] = { selfgcolor, selbgcolor, col_urgborder },
 };
@@ -96,8 +96,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = filemgrcmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd } },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = pavuctrlcmd } },
-  { Mod1Mask,                     XK_Return, spawn,          {.v = term2cmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
