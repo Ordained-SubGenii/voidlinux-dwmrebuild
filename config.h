@@ -1,4 +1,3 @@
-/* See LICENSE file for copyright and license details. */
 #ifndef CONFIG_H
 #define CONFIG_H
 
@@ -20,7 +19,6 @@ static const char dmenufont[]       = "monospace:size=10";
 #ifndef wal
 #define wal "/home/nullifier/.cache/wal/colors-wal-dwm.h"
 #include wal
-/*  #include "/home/lasangre/.cache/wal/colors-wal-dwm_alt.h" */
 #else /*  use following declarations */ 
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -46,8 +44,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Firefox", NULL,     NULL,           1 << 7,    0,          0,          -1,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
   { "kitty",   NULL,     NULL,           0,         0,          1,           0,        -1 },
+  { "Spacefm", NULL,     NULL,           1 << 2,    0,          0,           0,        -1 },
   { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -81,7 +80,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *roficmd[6] = { "rofi", "-show", "drun", "-config", "/home/nullifier/.config/rofi/Monokai.rasi", NULL };
+static const char *roficmd[] = { "rofi", "-show", "drun", "-config", "/home/nullifier/.config/rofi/Monokai.rasi", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *filemgrcmd[] = { "spacefm", NULL };
@@ -131,9 +130,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Delete, quit,                    {0} },
 	/* single Xkey keybindings for volume, print, brightness, etc */
 	{ 0, XK_Print,                    spawn,    SHCMD("scrot ~/Pictures/Screenshot-$(date +%F_%T).png") },
-	{ 0, XF86XK_AudioRaiseVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+ unmute; kill -39 $(pidof mblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02- unmute; kill -39 $(pidof mblocks)") },
-	{ 0, XF86XK_AudioMute,            spawn,    SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -39 $(pidof mblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+ unmute") },
+	{ 0, XF86XK_AudioLowerVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02- unmute") },
+	{ 0, XF86XK_AudioMute,            spawn,    SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
 	{ 0, XF86XK_MonBrightnessUp,      spawn,    SHCMD("xbacklight -inc 5") },
 	{ 0, XF86XK_MonBrightnessDown,    spawn,    SHCMD("xbacklight -dec 5") },
 };
