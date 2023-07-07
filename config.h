@@ -130,9 +130,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Delete, quit,                    {0} },
 	/* single Xkey keybindings for volume, print, brightness, etc */
 	{ 0, XK_Print,                    spawn,    SHCMD("scrot ~/Pictures/Screenshot-$(date +%F_%T).png") },
-	{ 0, XF86XK_AudioRaiseVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+ unmute") },
-	{ 0, XF86XK_AudioLowerVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02- unmute") },
-	{ 0, XF86XK_AudioMute,            spawn,    SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
+	{ 0, XF86XK_AudioRaiseVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+ unmute; kill -39 $(pidof mblocks)") },
+	{ 0, XF86XK_AudioLowerVolume,     spawn,    SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02- unmute; kill -39 $(pidof mblocks)") },
+	{ 0, XF86XK_AudioMute,            spawn,    SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -39 $(pidof mblocks)") },
 	{ 0, XF86XK_MonBrightnessUp,      spawn,    SHCMD("xbacklight -inc 5") },
 	{ 0, XF86XK_MonBrightnessDown,    spawn,    SHCMD("xbacklight -dec 5") },
 };
