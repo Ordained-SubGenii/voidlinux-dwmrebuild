@@ -18,9 +18,8 @@ static const char *fonts[]          = { "monospace:size=13" };
 static const char dmenufont[]       = "monospace:size=10";
 /* use pywal to set colors */
 #ifndef wal
-#define wal "/home/nullifier/.cache/wal/colors-wal-dwm.h"
+#define wal "/home/nullifier/.cache/wal/colors-wal-dwm-xtracolorbar.h"
 #include wal
-/*  #include "/home/lasangre/.cache/wal/colors-wal-dwm_alt.h" */
 #else /*  use following declarations */ 
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -29,11 +28,28 @@ static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
 static char col_urgborder[]         = "#ff0000";
+static char unusedcolor[]           = "#ff0000";
+static char statusfgcolor[]         = "#ff0000";
+static char statusbgcolor[]         = "#ff0000";
+static char tagselfgcolor[]         = "#ff0000";
+static char tagsselbgcolor[]        = "#ff0000";
+static char tagsnormfgcolor[]       = "#ff0000";
+static char tagsnormbgcolor[]       = "#ff0000";
+static char infoselfgolor[]         = "#ff0000";
+static char infoselbgcolor[]        = "#ff0000";
+static char infonormfgcolor[]       = "#ff0000";
+static char infonormbgcolor[]       = "#ff0000";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
        [SchemeUrg] = { selfgcolor, selbgcolor, col_urgborder },
+       [SchemeStatus] = { statusfgcolor, statusbgcolor, unusedcolor }
+       [SchemeTagsSel] = { tagselfgcolor, tagsselbgcolor, unusedcolor }
+       [SchemeTagsNorm] = { tagsnormfgcolor, tagsnormbgcolor, unusedcolor } 
+       [SchemeInfoSel] = { infoselfgolor, infoselbgcolor, unusedcolor }
+       [SchemeInfoNorm] = { infonormfgcolor, infonormbgcolor, unusedcolor }
 };
 #endif 
 
