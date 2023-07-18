@@ -45,11 +45,11 @@ static char *colors[][3] = {
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
        [SchemeUrg] = { selfgcolor, selbgcolor, col_urgborder },
-       [SchemeStatus] = { statusfgcolor, statusbgcolor, unusedcolor }
-       [SchemeTagsSel] = { tagselfgcolor, tagsselbgcolor, unusedcolor }
-       [SchemeTagsNorm] = { tagsnormfgcolor, tagsnormbgcolor, unusedcolor } 
-       [SchemeInfoSel] = { infoselfgolor, infoselbgcolor, unusedcolor }
-       [SchemeInfoNorm] = { infonormfgcolor, infonormbgcolor, unusedcolor }
+       [SchemeStatus] = { statusfgcolor, statusbgcolor, unusedcolor },
+       [SchemeTagsSel] = { tagselfgcolor, tagsselbgcolor, unusedcolor },
+       [SchemeTagsNorm] = { tagsnormfgcolor, tagsnormbgcolor, unusedcolor }, 
+       [SchemeInfoSel] = { infoselfgolor, infoselbgcolor, unusedcolor },
+       [SchemeInfoNorm] = { infonormfgcolor, infonormbgcolor, unusedcolor },
 };
 #endif 
 
@@ -62,8 +62,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Firefox", NULL,     NULL,           1 << 7,    0,          0,          -1,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
   { "kitty",   NULL,     NULL,           0,         0,          1,           0,        -1 },
+  { "Spacefm", NULL,     NULL,           1 << 2,    0,          0,           0,        -1 },
   { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -97,7 +98,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *roficmd[6] = { "rofi", "-show", "drun", "-config", "/home/nullifier/.config/rofi/Monokai.rasi", NULL };
+static const char *roficmd[] = { "rofi", "-show", "drun", "-config", "/home/nullifier/.config/rofi/Monokai.rasi", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *filemgrcmd[] = { "spacefm", NULL };
