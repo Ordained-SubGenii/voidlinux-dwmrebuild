@@ -1,3 +1,4 @@
+/* See LICENSE file for copyright and license details. */
 #ifndef CONFIG_H
 #define CONFIG_H
 
@@ -17,7 +18,7 @@ static const char *fonts[]          = { "monospace:size=13" };
 static const char dmenufont[]       = "monospace:size=10";
 /* use pywal to set colors */
 #ifndef wal
-#define wal "/home/nullifier/.cache/wal/colors-wal-dwm.h"
+#define wal "/home/nullifier/.cache/wal/colors-wal-dwm-xtracolorbar.h"
 #include wal
 #else /*  use following declarations */ 
 static char normbgcolor[]           = "#222222";
@@ -27,11 +28,28 @@ static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#005577";
 static char selbgcolor[]            = "#005577";
 static char col_urgborder[]         = "#ff0000";
+static char unusedcolor[]           = "#ff0000";
+static char statusfgcolor[]         = "#ff0000";
+static char statusbgcolor[]         = "#ff0000";
+static char tagselfgcolor[]         = "#ff0000";
+static char tagsselbgcolor[]        = "#ff0000";
+static char tagsnormfgcolor[]       = "#ff0000";
+static char tagsnormbgcolor[]       = "#ff0000";
+static char infoselfgolor[]         = "#ff0000";
+static char infoselbgcolor[]        = "#ff0000";
+static char infonormfgcolor[]       = "#ff0000";
+static char infonormbgcolor[]       = "#ff0000";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
        [SchemeUrg] = { selfgcolor, selbgcolor, col_urgborder },
+       [SchemeStatus] = { statusfgcolor, statusbgcolor, unusedcolor }
+       [SchemeTagsSel] = { tagselfgcolor, tagsselbgcolor, unusedcolor }
+       [SchemeTagsNorm] = { tagsnormfgcolor, tagsnormbgcolor, unusedcolor } 
+       [SchemeInfoSel] = { infoselfgolor, infoselbgcolor, unusedcolor }
+       [SchemeInfoNorm] = { infonormfgcolor, infonormbgcolor, unusedcolor }
 };
 #endif 
 
@@ -44,9 +62,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 7,    0,          0,          -1,        -1 },
   { "kitty",   NULL,     NULL,           0,         0,          1,           0,        -1 },
-  { "Spacefm", NULL,     NULL,           1 << 2,    0,          0,           0,        -1 },
   { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
@@ -80,7 +97,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
-static const char *roficmd[] = { "rofi", "-show", "drun", "-config", "/home/nullifier/.config/rofi/Monokai.rasi", NULL };
+static const char *roficmd[6] = { "rofi", "-show", "drun", "-config", "/home/nullifier/.config/rofi/Monokai.rasi", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *browsercmd[] = { "firefox", NULL };
 static const char *filemgrcmd[] = { "spacefm", NULL };
@@ -118,6 +135,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
