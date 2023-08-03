@@ -53,8 +53,12 @@ static char *colors[][3] = {
 };
 #endif 
 
+#define wallpaper "/home/nullifier/Pictures/Space_Travel_Portal_094425_.jpg" 
+
 static const char *const autostart[] = {
-	"st", NULL,
+	"/home/nullifier/bin/mblocks", NULL,
+	"feh", "--bg-center", wallpaper, NULL,
+	/*  "feh", "--bg-center", "/home/nullifier/Pictures/Darker than Black Wallpaper.jpg", NULL,  */
 	NULL /* terminate */
 };
 
