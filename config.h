@@ -58,6 +58,8 @@ static char *colors[][3] = {
 static const char *const autostart[] = {
 	"/home/nullifier/bin/mblocks", NULL,
 	"feh", "--bg-center", wallpaper, NULL,
+	"picom","--daemon", "--config", "/home/nullifier/.config/picom/picom.conf", NULL,
+	"pipewire", NULL,
 	/*  "feh", "--bg-center", "/home/nullifier/Pictures/Darker than Black Wallpaper.jpg", NULL,  */
 	NULL /* terminate */
 };
