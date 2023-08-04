@@ -53,6 +53,17 @@ static char *colors[][3] = {
 };
 #endif 
 
+#define wallpaper "/home/nullifier/Pictures/Space_Travel_Portal_094425_.jpg" 
+
+static const char *const autostart[] = {
+	"/home/nullifier/bin/mblocks", NULL,
+	"feh", "--bg-center", wallpaper, NULL,
+	"picom","--daemon", "--config", "/home/nullifier/.config/picom/picom.conf", NULL,
+	"pipewire", NULL,
+	/*  "feh", "--bg-center", "/home/nullifier/Pictures/Darker than Black Wallpaper.jpg", NULL,  */
+	NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
